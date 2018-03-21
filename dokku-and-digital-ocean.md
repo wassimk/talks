@@ -1,14 +1,14 @@
-# Dokku Talk
+# Dokku with DigitalOcean
 
 [Dokku](http://dokku.viewdocs.io/dokku/) is a mini-Heroku just for you. Run you rown PaaS. 
 
 In this set of notes we deploy a demo Ruby on Rails app that uses PostgreSQL, Redis, Memcached and Let's Encrypt. You can see it at [suggestotron.apps.tulsarb.org](https://suggestotron.apps.tulsarb.org/).
 
-#### Sign-up for DigitalOcean:
+### Sign-up for DigitalOcean:
 
 Use [referral link](https://m.do.co/c/8f0f950f85db) for $10 credit.
 
-#### Create a [Droplet](https://cloud.digitalocean.com/droplets):
+### Create a [Droplet](https://cloud.digitalocean.com/droplets):
 
 1. **One-click apps:** `Dokku 0.11.3 on 16.04`
 
@@ -21,7 +21,7 @@ Use [referral link](https://m.do.co/c/8f0f950f85db) for $10 credit.
 5. **Upload SSH Key:** `cat ~/.ssh/id_ras | pbcopy`
 6. **Name:** *tulsarb* - doesn't matter too much.
 
-#### Configure the Firewall:
+### Firewall
 
 [Firewalls](https://cloud.digitalocean.com/networking/firewalls) are under *Networking* in the dashboard:
 
@@ -31,7 +31,7 @@ Use [referral link](https://m.do.co/c/8f0f950f85db) for $10 credit.
 4. **Remove IPv6:** Dokku no like.
 5. Apply to Droplets, search for *tulsarb*.
 
-#### DNS:
+### DNS
 
 *Optional but makes it easier to work with!*
 
@@ -41,14 +41,14 @@ CNAME record of `*.apps.tulsa.org` to `apps.tulsarb.org`.
 
 This let's all of our apps automatically get a hostname of `<app-name>.apps.tulsarb.org`
 
-#### Update the OS Packages
+### Update the OS Packages
 
 ``` shell
 apt update # fetch the updates
 apt upgrade # apply the updates
 ```
 
-#### Configure Dokku
+### Configure Dokku
 
 **Initial Setup via the Web:**
 
@@ -59,7 +59,6 @@ apt upgrade # apply the updates
 3. Set the hostname to: `apps.tulsarb.org`
 
 4. Enable virtual host naming for pretty URL's like: `https://<app-name>.apps.tulsarb.org`
-
 
 **Continue Setup via SSH:**
 
@@ -79,7 +78,7 @@ sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=wassim@wawesome.com
 ```
 
-#### Configure your Application
+### Configure your Application
 
 Have your application ready to deploy!
 
@@ -120,7 +119,7 @@ dokku config:set suggestotron MAILER_HOST=smtp.server.com
 # etc...
 ```
 
-#### Deploy your Application
+### Deploy your Application
 
 **Configure git remotes:**
 
@@ -142,19 +141,26 @@ Do this after initial deploy and any domain adds and removes.
 ``` shell
 dokku letsencrypt suggestotron
 ```
-**Run migrations:**
-
-You can have this done automatically with [deploy hooks](http://dokku.viewdocs.io/dokku/advanced-usage/deployment-tasks/).
-
-``` shell
-dokku run suggestotron rake db:migrate
-```
 
 **Start the Worker Process too:**
 
 ``` shell
 dokku ps:scale suggestotron web=1 worker=1
 ```
+
+### Tips
+
+**One Off Commands:**
+
+Things like Rails database migrations or rake tasks:
+
+``` shell
+dokku run suggestotron rake db:migrate
+```
+
+**Deploy Hooks:**
+
+You can do things like run migrations automatically. Read [more](http://dokku.viewdocs.io/dokku/advanced-usage/deployment-tasks/).
 
 **Tweak Dokku default scale size:**
 
