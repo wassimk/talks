@@ -1,6 +1,6 @@
 # Dokku with DigitalOcean
 
-[Dokku](http://dokku.viewdocs.io/dokku/) is a mini-Heroku just for you. Run you rown PaaS. 
+[Dokku](http://dokku.viewdocs.io/dokku/) is a mini-Heroku just for you. Run your own PaaS. 
 
 In this set of notes we deploy a demo Ruby on Rails app that uses PostgreSQL, Redis, Memcached and Let's Encrypt. You can see it at [suggestotron.apps.tulsarb.org](https://suggestotron.apps.tulsarb.org/).
 
