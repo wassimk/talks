@@ -1,14 +1,14 @@
 # RailsBridge for Windows
 
-The official RailsBridge instructions are referencing some broken tools. These are new instructions for going through the [Windows page](http://docs.railsbridge.org/installfest/windows) of the RailsBridge Installfest. They are meant to replace that one page only, everything else should work according to the rest of Installfest.
-
-Make sure and skip the **Create An SSH Key** and **Create a Github account** pages. We will not go through those in Tulsa.
+The official RailsBridge instructions are referencing some broken software packages. These are new instructions for going through the Windows page of Installfest at http://docs.railsbridge.org/installfest/windows. These instructions are meant to replace just the one Windows page, everything else should work as written.
 
 These instructions should work for all versions of Windows from 7 to Windows 10.
 
 You may need to log in as Administrator or give the Administrator password when installing some programs, depending on your Windows version and user settings.
 
 Most newer versions of Windows will use **(x64)** downloads, if you're not sure please ask a volunteer.
+
+**Note:** Make sure and skip the **Create An SSH Key** and **Create a Github account** pages. We will not go through those in Tulsa.
 
 ### Ruby
 
