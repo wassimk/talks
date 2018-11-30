@@ -1,6 +1,6 @@
 # Dokku with DigitalOcean
 
-[Dokku](http://dokku.viewdocs.io/dokku/) is a mini-Heroku just for you. Run you rown PaaS. 
+[Dokku](http://dokku.viewdocs.io/dokku/) is a mini-Heroku just for you. Run you rown PaaS.
 
 In this set of notes we deploy a demo Ruby on Rails app that uses PostgreSQL, Redis, Memcached and Let's Encrypt. You can see it at [suggestotron.apps.tulsarb.org](https://suggestotron.apps.tulsarb.org/).
 
@@ -30,6 +30,8 @@ Use [referral link](https://m.do.co/c/8f0f950f85db) for $10 credit.
 3. **Outbound Rules:** Default are okay.
 4. **Remove IPv6:** Dokku no like.
 5. Apply to Droplets, search for *tulsarb*.
+
+You should also turn on Ubuntu firewall which has good default rules. It's `uft enable` after _ssh_ into the server. You can see the rules via `ufw status`.
 
 ### DNS
 
@@ -74,8 +76,8 @@ sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 ```
 
 **Configure Global E-mail Address for all SSL Certificates**
-```
-dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=wassim@wawesome.com
+```shell
+dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=my@email-address.com
 ```
 
 ### Configure your Application
@@ -113,7 +115,7 @@ dokku memcached:link suggestotron-memcached suggestotron # sets MEMCACHED_URL EN
 **Set any other needed environmental variables:**
 
 ```shell
-dokku config:set suggestotron AWS_ACCESS_KEY_ID=thekey 
+dokku config:set suggestotron AWS_ACCESS_KEY_ID=thekey
 dokku config:set suggestotron AWS_REGION=us-east-1
 dokku config:set suggestotron MAILER_HOST=smtp.server.com
 # etc...
@@ -128,7 +130,7 @@ git remote add dokku dokku@apps.tulsarb.org:suggestotron
 ```
 **Deploy:**
 
-This deploy process looks like Heroku because it detects your app type and uses the appropirate open-soruced Heroku [build pack](https://devcenter.heroku.com/articles/buildpacks). It uses the `Procfile` to know how to start processes.
+This deploy process looks like Heroku because it detects your app type and uses the appropriate open-sourced Heroku [build pack](https://devcenter.heroku.com/articles/buildpacks). It uses the `Procfile` to know how to start processes.
 
 ``` shell
 git push dokku master
@@ -200,3 +202,6 @@ Now you don't need to type the app name each time. The `dokku` command looks for
 gem install dokku-cli
 ```
 
+**Automatically Upgrade Unbuntu OS:**
+
+Run through the [installation instructions](https://help.ubuntu.com/community/AutomaticSecurityUpdates#Using_the_.22unattended-upgrades.22_package) for automatic uanttended upgrades. Make sure to turn on e-mail notifications. Then when they work turn it on only for errors.
