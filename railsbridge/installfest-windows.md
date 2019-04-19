@@ -14,7 +14,7 @@ Most newer versions of Windows will use **(x64)** downloads, if you're not sure 
 
 Ruby is the programming language we'll use to code our web application.
 
-Download and install **Ruby+Devkit 2.4.5-1** from RubyInstaller at https://rubyinstaller.org/downloads. 
+Download and install **Ruby+Devkit 2.4.6-1** from RubyInstaller at https://rubyinstaller.org/downloads. 
 
 Accept all defaults during the install.
 
@@ -58,7 +58,7 @@ Accept all the defaults during the install.
 
 Ruby on Rails is the framework, written in the Ruby programming language that we'll use to build our web application.
 
-First, start a command prompt with Ruby support using **Start** -> **All Programs** -> **Ruby 2.4.5-1 with MSY2** ->  **Start Command Prompt with Ruby**
+First, start a command prompt with Ruby support using **Start** -> **All Programs** -> **Ruby 2.4.6-1 with MSY2** ->  **Start Command Prompt with Ruby**
 
 Install Ruby on Rails with:
 
