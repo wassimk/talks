@@ -80,6 +80,6 @@ Whenever you run `bundle install` today or during the workshop tomorrow. If you 
   gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
 ```
 
-Remember, anytime you chnage a `Gemfile` you need to run another `bundle install` to apply the changes.
+Remember, anytime you change a `Gemfile` you need to run another `bundle install` to apply the changes.
 
 You can read more about this [issue on Stack Overflow](https://stackoverflow.com/questions/50249153/cannot-load-such-file-sqlite3-sqlite3-native-loaderror-ruby-on-rails/50490399#50490399).
