@@ -74,10 +74,12 @@ Remember, Windows users will skip the **Create An SSH Key** and **Create a Githu
 
 ### Issues
 
-Whenever you run `bundle install` today or during the Workshop tomorrow. If you get an error related to 'sqlite' then you need to update the `Gemfile` and change the `sqlite` entry to the following:
+Whenever you run `bundle install` today or during the workshop tomorrow. If you get an error related to 'sqlite' then you need to update the file `Gemfile` and change the `gem sqlite` entry to the following:
 
 ``` ruby
   gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
 ```
+
+Remember, anytime you chnage a `Gemfile` you need to run another `bundle install` to apply the changes.
 
 You can read more about this [issue on Stack Overflow](https://stackoverflow.com/questions/50249153/cannot-load-such-file-sqlite3-sqlite3-native-loaderror-ruby-on-rails/50490399#50490399).
